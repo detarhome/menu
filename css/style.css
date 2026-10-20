@@ -1,0 +1,346 @@
+@font-face {
+    font-family: 'IranNastaliq';
+    src: url('IranNastaliq.ttf') format('truetype');
+    font-display: block;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'IranNastaliq', -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    direction: rtl;
+    background: #f6ebc2;
+    min-height: 100vh;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive frame with proper background scaling */
+.menu-frame {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    background-image: url('../images/paper-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* Content that scales with the background */
+.menu-content {
+    width: 100%;
+    padding: 15% 12% 15% 12%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Responsive padding based on screen size */
+@media (min-width: 1200px) {
+    .menu-content {
+        padding: 12% 14% 12% 14%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .menu-content {
+        padding: 14% 12% 14% 12%;
+    }
+}
+
+@media (max-width: 767px) {
+    .menu-content {
+        padding: 18% 10% 18% 10%;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-content {
+        padding: 20% 8% 20% 8%;
+    }
+}
+
+.category {
+    margin-bottom: 15px;
+}
+
+.category h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #1a0f07;
+    font-weight: 700;
+    position: relative;
+}
+
+.category h2:after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: #8b5a2b;
+    margin: 0px auto 0;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    border-bottom: 1px dashed rgba(0,0,0,0.12);
+    font-size: 18px;
+    gap: 15px;
+}
+
+.menu-item span:first-child {
+    font-weight: 500;
+    flex: 1;
+    text-align: right;
+}
+
+.menu-item span:last-child {
+    color: #000000;
+    font-weight: 600;
+    white-space: nowrap;
+    font-family: monospace;
+    font-size: 18px;
+    font-family: 'IranNastaliq';
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    color: #2a1a0e;
+    font-size: 20px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 10px;
+    max-width: 900px;
+    width: 100%;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .category {
+        margin-bottom: 10px;
+    }
+    
+    .category h2 {
+        font-size: 22px;
+        margin-bottom: 0px;
+    }
+    
+    .menu-item {
+        padding: 8px 0;
+        font-size: 13px;
+        gap: 10px;
+    }
+    
+    .menu-item span:last-child {
+        font-size: 14px;
+    }
+    
+    footer {
+        margin-top: 25px;
+        font-size: 15px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .category h2 {
+        font-size: 18px;
+        height: 5vh;
+    }
+	.category h2:after {
+		display: none;
+	}
+    
+    .menu-item {
+        padding: 7px 0;
+        font-size: 14px;
+        gap: 8px;
+		height: 4.5vh;
+    }
+    
+    .menu-item span:first-child {
+        flex: 1;
+    }
+    
+    .menu-item span:last-child {
+        font-size: 12px;
+    }
+    
+    footer {
+        font-size: 20px;
+        margin-top: 20px;
+    }
+}
+
+/* For larger screens like 4K */
+@media (min-width: 1920px) {
+    .menu-frame {
+        max-width: 1200px;
+    }
+    
+    .category h2 {
+        font-size: 36px;
+        margin-bottom: 25px;
+    }
+    
+    .menu-item {
+        font-size: 22px;
+        padding: 14px 0;
+    }
+    
+    .menu-item span:last-child {
+        font-size: 20px;
+    }
+}
+
+/* Maintain aspect ratio for the background frame - NO INNER SCROLL */
+@supports (aspect-ratio: 1) {
+    .menu-frame {
+        aspect-ratio: 720 / 1024;
+    }
+    
+    .menu-content {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: visible;
+        padding: 32% 17% 20% 17%;
+    }
+}
+
+/* Fallback for browsers without aspect-ratio support */
+@supports not (aspect-ratio: 1) {
+    .menu-frame {
+        padding-bottom: 142.22%; /* 1024/720 = 1.4222 */
+        height: 0;
+        position: relative;
+    }
+    
+    .menu-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: visible;
+        padding: 12% 12% 12% 12%;
+    }
+}
+
+/* Remove decorative element that might cause issues */
+.menu-content::before {
+    display: none;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Improve touch targets on mobile */
+@media (hover: none) and (pointer: coarse) {
+    .menu-item {
+        padding: 0 0;
+    }
+}
+
+/* Ensure the frame scales properly */
+.menu-frame {
+    background-size: 100% 100%;
+    background-position: center;
+}
+
+/* Adjust last category margin */
+.category:last-child {
+    margin-bottom: 0;
+}
+
+
+.food-item{
+    cursor:pointer;
+}
+
+.food-item:hover{
+    background:rgba(139,90,43,.08);
+}
+
+.lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.9);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:99999;
+}
+
+.lightbox.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:75vh;
+
+    border-radius:15px;
+
+    box-shadow:0 10px 40px rgba(0,0,0,.4);
+}
+
+#lightbox-title{
+    color:white;
+    font-size:32px;
+    margin-top:20px;
+}
+
+.close-lightbox{
+    position:absolute;
+    top:20px;
+    left:30px;
+
+    color:white;
+    font-size:50px;
+
+    cursor:pointer;
+}
